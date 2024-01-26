@@ -7,6 +7,7 @@ pip install python-dotenv
 ## 2
 pip install azure-ai-language-questionanswering
 ## 3
+pip install azure-ai-language-conversations
 ## 4
 ## 5
 ## 6
