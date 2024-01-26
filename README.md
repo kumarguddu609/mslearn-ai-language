@@ -9,6 +9,7 @@ pip install azure-ai-language-questionanswering
 ## 3
 pip install azure-ai-language-conversations
 ## 4
+pip install azure-ai-textanalytics==5.3.0
 ## 5
 ## 6
 ## 7
