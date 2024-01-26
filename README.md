@@ -15,6 +15,8 @@ pip install azure-ai-textanalytics==5.3.0
 ## 6
 pip install azure-ai-translation-text==1.0.0b1
 ## 7
+pip install azure-cognitiveservices-speech==1.30.0
+pip install playsound==1.3.0
 ## 8
 pip install azure-cognitiveservices-speech==1.30.0
 pip install playsound==1.3.0
