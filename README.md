@@ -5,6 +5,7 @@ Lab files for Azure AI Language modules
 pip install azure-ai-textanalytics==5.3.0
 pip install python-dotenv
 ## 2
+pip install azure-ai-language-questionanswering
 ## 3
 ## 4
 ## 5
