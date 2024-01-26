@@ -3,6 +3,9 @@ from datetime import datetime
 import os
 
 # Import namespaces
+# Import namespaces
+import azure.cognitiveservices.speech as speech_sdk
+from playsound import playsound
 
 
 def main():
@@ -15,6 +18,9 @@ def main():
         ai_region = os.getenv('SPEECH_REGION')
 
         # Configure speech service
+        # Configure speech service
+        speech_config = speech_sdk.SpeechConfig(ai_key, ai_region)
+        print('Ready to use speech service in:', speech_config.region)
         
 
         # Get spoken input
@@ -29,9 +35,30 @@ def TranscribeCommand():
     command = ''
 
     # Configure speech recognition
+    # Configure speech recognition
+    audio_config = speech_sdk.AudioConfig(use_default_microphone=True)
+    speech_recognizer = speech_sdk.SpeechRecognizer(speech_config, audio_config)
+    print('Speak now...')
 
+    # Configure speech recognition
+    # current_dir = os.getcwd()
+    # audioFile = current_dir + "\\time.wav"
+    # playsound(audioFile)
+    # audio_config = speech_sdk.AudioConfig(filename=audioFile)
+    # speech_recognizer = speech_sdk.SpeechRecognizer(speech_config, audio_config)
 
     # Process speech input
+    # Process speech input
+    speech = speech_recognizer.recognize_once_async().get()
+    if speech.reason == speech_sdk.ResultReason.RecognizedSpeech:
+        command = speech.text
+        print(command)
+    else:
+        print(speech.reason)
+        if speech.reason == speech_sdk.ResultReason.Canceled:
+            cancellation = speech.cancellation_details
+            print(cancellation.reason)
+            print(cancellation.error_details)
 
 
     # Return the command
